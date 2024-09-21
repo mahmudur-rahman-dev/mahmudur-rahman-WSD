@@ -1,7 +1,5 @@
 package com.solvians.showcase;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public class CertificateUpdate {
     private final long timestamp;
     private final String isin;

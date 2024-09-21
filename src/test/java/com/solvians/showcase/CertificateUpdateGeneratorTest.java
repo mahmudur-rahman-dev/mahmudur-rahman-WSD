@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CertificateUpdateGeneratorTest {
 
-    private final CertificateUpdateGenerator generator = new CertificateUpdateGenerator(1, 1);
+    private final CertificateUpdateGenerator generator = new CertificateUpdateGenerator(1);
 
     @Test
     void testGenerateQuote() throws Exception {

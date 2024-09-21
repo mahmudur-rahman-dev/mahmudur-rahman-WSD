@@ -1,31 +1,21 @@
 package com.solvians.showcase;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
 public class CertificateUpdateGenerator {
-    private final int threads;
     private final int quotes;
     private final ISINGenerator isinGenerator;
 
-    public CertificateUpdateGenerator(int threads, int quotes) {
-        this.threads = threads;
+    public CertificateUpdateGenerator(int quotes) {
         this.quotes = quotes;
         this.isinGenerator = new ISINGenerator();
     }
 
-//    public Stream<CertificateUpdate> generateQuotes() {
-//        return Stream.generate(this::generateSingleQuote)
-//                .parallel()
-//                .limit((long) threads * quotes);
-//    }
-
     public Stream<Callable<String>> generateQuotes() {
         return Stream.generate(this::createCallable)
-                .limit((long) threads * quotes);
+                .limit(quotes);
     }
 
     public Callable<String> createCallable() {
